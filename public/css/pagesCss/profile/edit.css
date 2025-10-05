@@ -1,0 +1,186 @@
+@import url('../../font.css');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Jost-regulat";
+}
+
+.container {
+    max-width: 60%;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px;
+}
+form{
+    display: flex;
+    gap: 20px;
+}
+.avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-wrapper > img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.user-body {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-family: "Jost-bold";
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.form-control {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Jost-regulat";
+    font-size: 1rem;
+    background-color: rgba(220, 220, 220, 0.3);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #E7CFCD;
+}
+
+.form-control-file {
+    padding: 20px;
+    font-family: "Jost-regulat";
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+.text-danger {
+    font-size: 0.9rem;
+    color: #dc3545;
+}
+
+.user-button {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.buttoms{
+    margin: 0;
+}
+button,
+.user-button a {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: "Jost-bold";
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    font-size: 1.2rem;
+    background-color: #E7CFCD;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover,
+.user-button a:hover {
+    background-color: #CAB1BD;
+}
+
+button:active,
+.user-button a:active {
+    background-color: #9F9AA4;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        margin: 30px auto;
+    }
+
+    .card-body {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+    }
+
+    .avatar-wrapper > img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 98%;
+    }
+
+    .card-body {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+    }
+
+    .avatar-wrapper > img {
+        width: 150px;
+        height: 150px;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-body {
+        width: 100%;
+    }
+
+    button,.buttoms,
+    .user-button a {
+        padding: 16px;
+        font-size: 1rem;
+    }
+}

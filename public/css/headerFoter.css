@@ -1,0 +1,362 @@
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.burger{
+    display: none;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 160px;
+    padding-bottom: 50px;
+
+}
+nav > div{
+    display: flex;
+    align-items: center;
+    gap: 65px;
+}
+nav >div> a{
+    text-decoration: none;
+    color: black;
+    font-family:"Jost-regulat";
+    font-size: 1.5rem;
+
+}
+nav >a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-family: "Jost-medium";
+    font-size: 2rem;
+}
+nav>div>a:hover{
+    color: #9F9AA4;
+}
+nav>a:hover{
+    color: #E7CFCD;
+}
+
+
+footer{
+    display: flex;
+    background-color: #CAB1BD;
+    padding: 20px;
+}
+footer > div{
+    display: flex;
+    gap: 450px;
+    margin: 0 auto;
+    align-items: center;
+}
+footer > div >div{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+.footer-name>a{
+    display: flex;
+    text-decoration: none;
+    color:white;
+    font-family: "Jost-medium";
+    font-size: 2rem;
+}
+.footer-name>a:hover{
+    color: #E7CFCD;
+}
+.footer-link > div > a{
+    text-decoration: none;
+    color: white;
+    font-family:"Jost-regulat";
+    font-size: 1.5rem;
+}
+.footer-link>div>a:hover{
+    color: #9F9AA4;
+}
+.footer-link{
+    display: flex;
+    gap: 20px;
+}
+.footer-link > div{
+    display: flex;
+    flex-direction: column;
+}
+footer > div > img{
+    opacity: 30%;
+}
+
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.arrowBurger {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(181, 210, 195, .8);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 12px;
+    z-index: 1000;
+    min-width: 140px;
+    font-family: "Jost-regulat";
+}
+
+.dropdown-menu a,
+.dropdown-menu .language-option {
+    display: block;
+    padding: 8px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+.dropdown-menu a:hover {
+    color: #9F9AA4;
+}
+
+.language-option {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+}
+.arrowBurger {
+    transition: transform 0.3s ease;
+}
+
+.arrowBurger.active {
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1506px){
+    nav{
+        gap: 100px;
+        padding-bottom: 40px;
+    }
+    nav > div{
+        gap: 55px;
+    }
+    footer > div{
+        gap: 430px;
+    }
+}
+@media screen and (max-width: 1355px){
+    nav{
+        gap: 80px;
+    }
+    nav > div{
+        gap: 45px;
+    }
+    footer > div{
+        gap: 400px;
+    }
+}
+@media screen and (max-width: 1260px){
+    nav{
+        gap: 70px;
+    }
+    nav > div{
+        gap: 40px;
+    }
+}
+@media screen and (max-width: 1222px){
+    nav{
+        gap: 65px;
+    }
+    nav > div{
+        gap: 35px;
+    }
+    footer > div{
+        gap: 300px;
+    }
+}
+@media screen and (max-width: 1200px){
+    nav{
+        gap: 60px;
+        padding-bottom: 30px;
+    }
+    nav >div> a{
+        font-size: 1.25rem;
+    }
+    nav >a{
+        font-size: 1.8rem;
+    }
+    nav > div{
+        gap: 35px;
+    }
+
+    footer{
+        padding: 20px 0 20px 0;
+    }
+    footer > div{
+        gap:250px;
+    }
+    footer > div >div {
+        gap: 40px;
+    }
+    .footer-name>a{
+        font-size: 1.8rem;
+    }
+    .footer-link > div > a{
+        font-size: 1.25rem;
+    }
+}
+
+
+@media all and (max-width: 1050px) {
+    .burger {
+        display: flex;
+        justify-content: space-between;
+        width: 100%
+    }
+    .navBurger {
+        display: flex;
+        cursor: pointer;
+        width: 4vw;
+        height: 4vh;
+    }
+    .burger > a{
+        display: flex;
+        text-decoration: none;
+        color: black;
+        font-family: "Jost-regulat";
+        font-size: 1.8rem;
+    }
+    .burger > a:hover{
+        color: #E7CFCD;
+    }
+
+    header{
+        max-width: 90vw;
+        display: flex;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        justify-content: space-between;
+
+    }
+    header > nav{
+        gap: 35px;
+    }
+
+    header > nav {
+        margin-top: 40px;
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        background-color: rgba(181, 210, 195, .8);
+        flex-direction: column;
+        width: 20vw;
+        height: 35vw;
+        align-items: flex-start;
+    }
+
+
+    header > nav > div:first-child,
+    header > nav > div:nth-child(3) {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav >div> a{
+        color: white;
+    }
+    header > nav > a:nth-child(2) {
+        display: none;
+    }
+
+    header > nav > div:first-child {
+        order: 1;
+    }
+
+    header > nav > div:nth-child(3) {
+        order: 2;
+    }
+}
+@media all and (max-width: 900px){
+    footer > div{
+        gap: 200px;
+    }
+}
+@media all and (max-width: 850px){
+    footer > div{
+        gap: 150px;
+    }
+}
+@media all and (max-width: 800px){
+    .navBurger{
+        width: 5vw;
+        height: 5vh;
+    }
+    header > nav{
+        width: 25vw;
+        height: 45vw;
+    }
+
+    footer > div{
+        gap: 100px;
+    }
+}
+@media all and (max-width: 700px){
+    nav >div> a{
+        font-size: 1rem;
+    }
+}
+@media all and (max-width: 750px){
+    .footer-name{
+        display: none;
+    }
+}
+@media all and (max-width: 600px){
+    header > nav{
+        width: 30vw;
+        height: 50vw;
+    }
+}
+@media all and (max-width: 520px) {
+    .navBurger{
+        width: 6vw;
+        height: 6vw;
+    }
+
+    footer > div > img{
+        max-width: 16vw;
+    }
+    footer > div{
+        gap: 70px
+    }
+    .footer-link > div > a{
+        font-size: 1rem;
+    }
+
+}
+@media all and (max-width: 400px) {
+    .burger > a{
+        font-size: 1.25rem;
+    }
+    .navBurger{
+        width: 7vw;
+        height: 7vw;
+    }
+    header > nav{
+        width: 40vw;
+        height: 75vw;
+    }
+    footer > div > img{
+        max-width: 12vw;
+    }
+}

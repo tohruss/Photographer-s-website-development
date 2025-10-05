@@ -1,0 +1,137 @@
+@import url('../font.css');
+@import url('../headerFoter.css');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main > div:first-child{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+main > div:last-child{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper{
+    background-image: url(/img/DSC06525.JPG);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 90vw;
+    height: 24vw;
+    margin: 0 auto;
+}
+.contant-text{
+    max-width: 40vw;
+    margin: 0 auto;
+    text-align: center;
+    font-family:"Jost-light";
+    font-size: 2.25rem;
+    padding-bottom: 20px;
+}
+.contant-text > p:last-child{
+    font-size: 1.25rem;
+    font-family: "Jost-medium";
+}
+.buttoms-contact{
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding-bottom: 61px;
+}
+.buttoms-contact > a{
+    text-align: center;
+    font-family:"Jost-bold" ;
+    text-decoration: none;
+    width: 40vw;
+    color: white;
+    padding: 20px;
+    font-size: 2rem;
+    background-color: #E7CFCD;
+    border-radius: 20px;
+}
+.buttoms-contact > a:hover{
+    background-color: #CAB1BD;
+}
+.buttoms-contact > a:active{
+    background-color: #9F9AA4;
+}
+@media all and (max-width: 1500px){
+    .wrapper{
+        height: 26vw;
+    }
+}
+@media all and (max-width: 1200px) {
+    .contant-text{
+        font-size: 2rem;
+    }
+    .buttoms-contact > a{
+        font-size: 1.8rem;
+    }
+
+}
+@media all and (max-width: 1100px) {
+    .buttoms-contact{
+        width: 45vw;
+    }
+    .buttoms-contact > a{
+        width: 45vw;
+    }
+
+}
+@media all and (max-width: 800px) {
+    .contant-text{
+        font-size: 1.8rem;
+        max-width: 60vw;
+    }
+    .buttoms-contact{
+        width: 45vw;
+    }
+    .buttoms-contact > a{
+        width: 60vw;
+        font-size: 1.7rem;
+    }
+    .wrapper{
+        height: 28vw;
+    }
+
+}
+@media all and (max-width: 600px) {
+    .contant-text{
+        max-width: 80vw;
+    }
+
+    .buttoms-contact > a{
+        width: 80vw;
+    }
+    .wrapper{
+        height: 90vw;
+    }
+}
+@media all and (max-width: 400px){
+    .contant-text{
+        max-width: 90vw;
+        font-size: 1.5rem;
+    }
+    .contant-text > p:last-child{
+        font-size: 1rem;
+    }
+    .buttoms-contact{
+        width: 90vw;
+        gap: 20px;
+    }
+    .buttoms-contact > a{
+        width: 80vw;
+        font-size: 1.5rem;
+    }
+}

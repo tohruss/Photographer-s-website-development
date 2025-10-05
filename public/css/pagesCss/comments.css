@@ -1,0 +1,81 @@
+@import url('../font.css');
+@import url('../headerFoter.css');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main > div:first-child{
+    display: flex;
+    justify-content: center;
+}
+button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-family: "Jost-ExtraLight";
+    cursor: pointer;
+}
+button:hover{
+    text-decoration: underline;
+}
+
+main > div:last-child{
+    margin: 0 auto;
+    display: flex;
+    width: 90vw;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 30px;
+    padding-bottom: 61px;
+}
+main > div:last-child > div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+main > div:last-child > div > p{
+    max-width: 60vw;
+    font-size: 1.5rem;
+    font-family: "Jost-light";
+}
+@media all and (max-width: 1200px) {
+    main > div:last-child > div > p {
+        font-size: 1.25rem;
+    }
+    main > div:last-child > div > img{
+        width: 15vw;
+    }
+
+}
+@media all and (max-width: 1000px) {
+    main > div:last-child > div > img{
+        width: 20vw;
+    }
+
+}
+@media all and (max-width: 800px) {
+    main > div:last-child > div > img{
+        width: 25vw;
+    }
+
+}
+@media all and (max-width: 700px) {
+    main > div:last-child > div > img{
+        width: 30vw;
+    }
+    button{
+        font-size: 1.25rem;
+    }
+    main > div:last-child > div > p{
+        font-size: 1rem;
+    }
+}
+@media all and (max-width: 400px) {
+    main > div:last-child > div > img{
+        width: 40vw;
+    }
+
+}

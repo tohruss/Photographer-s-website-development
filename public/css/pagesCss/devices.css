@@ -1,0 +1,81 @@
+@import url('../font.css');
+@import url('../headerFoter.css');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.light_sources{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 67px;
+}
+main > p{
+    max-width: 25vw;
+    font-size: 2rem;
+    text-align: center;
+    font-family:"Jost-black" ;
+    padding-bottom: 40px
+}
+.light_sources > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.light_sources > div > img{
+    padding-bottom: 10px;
+}
+.light_sources > div > p{
+    max-width: 6vw;
+    text-align: center;
+    font-family: "Jost-regulat";
+}
+@media all and (max-width: 1184px) {
+    main > p{
+        max-width: 90vw;
+    }
+    .light_sources > div > p{
+        max-width: 12vw;
+    }
+
+}
+
+@media all and (max-width: 800px){
+    main >p{
+        font-size: 1.8rem;
+    }
+    .light_sources > div > p{
+        font-size: .9rem;
+    }
+}
+@media all and (max-width: 600px){
+    .light_sources > div > p{
+        max-width: 20vw;
+    }
+}
+@media all and (max-width: 500px){
+    main >p{
+        font-size: 1.6rem;
+    }
+    .light_sources > div > img{
+        max-width: 180px;
+    }
+    .light_sources > div > p{
+        max-width: 25vw;
+    }
+}
+@media all and (max-width: 400px){
+    main >p{
+        font-size: 1.5rem;
+    }
+    .light_sources > div > p{
+        max-width: 30vw;
+    }
+}
