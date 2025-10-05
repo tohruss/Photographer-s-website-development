@@ -27,6 +27,15 @@ form{
 .lable-form-container{
     max-width: 95.5%;
 }
+.lable-form-container > a{
+    display: flex;
+    justify-content: flex-end;
+    font-family: "Jost-medium";
+    color: black;
+    text-decoration: none;
+    padding-top: 10px;
+
+}
 input[type="text"],
 input[type="email"],
 input[type="password"],

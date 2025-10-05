@@ -14,9 +14,9 @@
 
                     <div class="avatar-wrapper">
                         @if(auth()->user()->userInfo?->avatar)
-                            <img src="{{ Storage::url(auth()->user()->userInfo->avatar) }}" alt="Аватар" class="rounded-circle">
+                            <img draggable="false" src="{{ Storage::url(auth()->user()->userInfo->avatar) }}" alt="Аватар" class="rounded-circle">
                         @else
-                            <img src="{{ asset('img/Group30.svg') }}" alt="Аватар по умолчанию" class="rounded-circle">
+                            <img draggable="false" src="{{ asset('img/Group30.svg') }}" alt="Аватар по умолчанию" class="rounded-circle">
                         @endif
                             <div>
                                 <label for="avatar" class="form-label">Фото профиля</label>

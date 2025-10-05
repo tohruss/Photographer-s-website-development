@@ -24,9 +24,8 @@
                 <label for="password">Введите пароль</label>
                 <input type="password" id="password" name="password" required>
                 @error('password') <span class="error">{{ $message }}</span> @enderror
+                <a href="#">Забыли пароль?</a>
             </div>
-
-            <a href="#" style="float: right;">Забыли пароль?</a>
 
             <button type="submit">Войти</button>
         </form>

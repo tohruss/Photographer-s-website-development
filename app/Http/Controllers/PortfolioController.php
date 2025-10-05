@@ -18,7 +18,10 @@ class PortfolioController extends Controller
                 return $item;
             });
 
-        return view('portfolio', compact('portfolioItems'));
+        return view('portfolio', [
+            'portfolioItems' => $portfolioItems,
+            'user' => auth()->user(),
+        ]);
     }
 
     public function store(UploadImagesRequest $request): RedirectResponse

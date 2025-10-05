@@ -22,13 +22,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     if ($request->user()->hasVerifiedEmail()) {
         return redirect('/profile');
     }
-
-    \Log::info('Попытка отправки письма подтверждения для пользователя: ' . $request->user()->email);
-
     $request->user()->sendEmailVerificationNotification();
-
-    \Log::info('Письмо подтверждения отправлено');
-
     return back()->with('message', 'Ссылка для подтверждения отправлена!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 

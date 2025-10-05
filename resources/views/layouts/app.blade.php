@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{ asset('css/pagesCss/style.css') }}">
     <link rel="icon" href="{{ asset('img/ЛОГОТИП ФОТО 1.png') }}">
     <title>FamilyCreativy</title>
-    <script defer src="{{ asset('js/script.js') }}"></script>
     @yield('styles')
 </head>
 <body>
@@ -81,6 +80,8 @@
         <img draggable="false" src="{{ asset('img/ЛОГОТИП ФОТО 1.png') }}" alt="logo">
     </div>
 </footer>
-
+@yield('styles')
+<script defer src="{{ asset('js/script.js') }}"></script>
+<script defer src="{{ asset('js/imgModal.js') }}"></script>
 </body>
 </html>
