@@ -4,71 +4,46 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipment;
 use App\Models\CategoryOfEquipment;
-use App\Http\Requests\EquipmentRequest;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\EquipmentRequest; // ← подключаем FormRequest
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class EquipmentController extends Controller
 {
-    /**
-     * Получить всё оборудование, сгруппированное по категориям (публичный доступ).
-     */
-    public function index(): JsonResponse
+    public function index()
     {
         $categories = CategoryOfEquipment::with([
-            'equipments' => fn ($query) => $query->select('id', 'user_id', 'title', 'photo', 'description')
-                ->with(['user:id,name'])
-        ])
-            ->get(['id', 'name']);
+            'equipments' => fn($query) => $query->with('user:id,login')
+        ])->get(['id', 'name']);
 
-        $categories->each(function ($category) {
-            $category->equipments->each(function ($eq) {
-                $eq->photo_url = Storage::url($eq->photo);
-                unset($eq->photo);
-            });
-        });
-
-        return response()->json([
-            'success' => true,
-            'data' => $categories,
+        return view('equipment', [
+            'categories' => $categories,
+            'user' => auth()->user(),
         ]);
     }
 
-
-    public function store(EquipmentRequest $request): JsonResponse
+    public function store(EquipmentRequest $request)
     {
         $path = $request->file('photo')->store('equipment', 'public');
 
-        $equipment = Equipment::create([
+        Equipment::createWithCategories([
             'user_id' => Auth::id(),
             'title' => $request->title,
             'description' => $request->description,
             'photo' => $path,
-        ]);
+        ], $request->categorys_id);
 
-        $equipment->categories()->attach($request->categorys_id);
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Оборудование добавлено',
-            'data' => $equipment,
-        ], 201);
+        return redirect()->route('equipment')
+            ->with('success', 'Оборудование успешно добавлено!');
     }
 
-    /**
-     * Обновить оборудование (только админ).
-     */
-    public function update(string $id, EquipmentRequest $request): JsonResponse
+
+    public function update(EquipmentRequest $request, string $id)
     {
         $equipment = Equipment::findOrFail($id);
 
         if ($request->hasFile('photo')) {
-            if (Storage::disk('public')->exists($equipment->photo)) {
-                Storage::disk('public')->delete($equipment->photo);
-            }
-            $path = $request->file('photo')->store('equipment', 'public');
-            $equipment->photo = $path;
+            $equipment->updatePhoto($request->file('photo'));
         }
 
         $equipment->update([
@@ -78,92 +53,58 @@ class EquipmentController extends Controller
 
         $equipment->categories()->sync($request->categorys_id);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Оборудование обновлено',
-            'data' => $equipment,
-        ]);
+        return redirect()->route('equipment')
+            ->with('success', 'Оборудование обновлено!');
     }
 
-    /**
-     * Удалить оборудование (только админ).
-     */
-    public function destroy(string $id): JsonResponse
+    public function destroy(string $id)
     {
         $equipment = Equipment::findOrFail($id);
-
-        if (Storage::disk('public')->exists($equipment->photo)) {
-            Storage::disk('public')->delete($equipment->photo);
-        }
-
+        $equipment->deletePhoto();
         $equipment->delete();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Оборудование удалено',
-        ]);
+        return redirect()->route('equipment')
+            ->with('success', 'Оборудование удалено!');
     }
 
 
-    public function categories(): JsonResponse
+    public function createCategory(Request $request)
     {
-        $categories = CategoryOfEquipment::all(['id', 'name']);
-
-        return response()->json([
-            'success' => true,
-            'data' => $categories,
-        ]);
-    }
-
-
-    public function createCategory(): JsonResponse
-    {
-        $validated = request()->validate([
+        $validated = $request->validate([
             'name' => 'required|string|unique:categories_of_equipment,name',
+        ], [
+            'name.required' => 'Название категории обязательно',
+            'name.unique' => 'Категория с таким названием уже существует',
         ]);
 
-        $category = CategoryOfEquipment::create($validated);
+        CategoryOfEquipment::create(['name' => $validated['name']]);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Категория создана',
-            'data' => $category,
-        ], 201);
+        return redirect()->route('equipment')
+            ->with('success', 'Категория создана!');
     }
 
-
-    public function updateCategory(string $id): JsonResponse
+    public function updateCategory(Request $request, string $id)
     {
+        $validated = $request->validate([
+            'name' => 'required|string|unique:categories_of_equipment,name,' . $id,
+        ], [
+            'name.required' => 'Название категории обязательно',
+            'name.unique' => 'Категория с таким названием уже существует',
+        ]);
+
         $category = CategoryOfEquipment::findOrFail($id);
+        $category->update(['name' => $validated['name']]);
 
-        $validated = request()->validate([
-            'name' => [
-                'required',
-                'string',
-                \Illuminate\Validation\Rule::unique('categories_of_equipment')->ignore($category->id),
-            ],
-        ]);
-
-        $category->update($validated);
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Категория обновлена',
-            'data' => $category,
-        ]);
+        return redirect()->route('equipment')
+            ->with('success', 'Категория обновлена!');
     }
 
-
-    public function deleteCategory(string $id): JsonResponse
+    public function deleteCategory(string $id)
     {
         $category = CategoryOfEquipment::findOrFail($id);
+        $category->safeDelete();
 
-        $category->equipments()->detach();
-        $category->delete();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Категория удалена',
-        ]);
+        return redirect()->route('equipment')
+            ->with('success', 'Категория удалена!');
     }
 }

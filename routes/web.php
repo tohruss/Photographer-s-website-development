@@ -39,7 +39,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/contacts', function () {return view('contacts');})->name('contacts');
     Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
     Route::get('/reviews', [ReviewController::class, 'reviews'])->name('reviews');
-    Route::get('/equipment', [EquipmentController::class, 'equipment'])->name('equipment');
+    Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment');
     Route::get('/services', [ServiceController::class, 'index'])->name('services');
     Route::get('/profile', [UserInfoController::class, 'showProfile'])->name('profile');
     Route::get('/profile/edit', [UserInfoController::class, 'showEditForm'])->name('profile.edit');
@@ -49,14 +49,14 @@ Route::middleware(['auth','verified'])->group(function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/equipment', [EquipmentController::class, 'store']);
-    Route::put('/equipment/{id}', [EquipmentController::class, 'update']);
+//    Route::put('/equipment/{id}', [EquipmentController::class, 'update']);
     Route::delete('/equipment/{id}', [EquipmentController::class, 'destroy']);
 
     Route::post('/portfolio', [PortfolioController::class, 'store'])->name('admin.portfolio.store');
     Route::delete('/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
 
     Route::post('/equipment/categories', [EquipmentController::class, 'createCategory']);
-    Route::put('/equipment/categories/{id}', [EquipmentController::class, 'updateCategory']);
+//    Route::put('/equipment/categories/{id}', [EquipmentController::class, 'updateCategory']);
     Route::delete('/equipment/categories/{id}', [EquipmentController::class, 'deleteCategory']);
 
     Route::post('/services', [ServiceController::class, 'store']);

@@ -62,22 +62,26 @@
 }
 
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    padding: 0;
+    padding: 70px;
     max-width: 100%;
     margin: 0 auto;
-    padding: 70px;
+    justify-content: center;
 }
 
 .portfolio-item {
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 200px;
     position: relative;
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: #fff;
+    flex-basis: calc(33% - 13px);
 }
 
 .portfolio-item:hover {
@@ -124,37 +128,6 @@
 .delete-btn:focus {
     outline: none;
 }
-
-@media (max-width: 768px) {
-    .admin-controls {
-        padding: 20px 15px;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 15px;
-    }
-
-    .portfolio-item img {
-        height: 240px;
-    }
-}
-
-@media (max-width: 480px) {
-    .admin-controls {
-        padding: 15px 10px;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .portfolio-item img {
-        height: 200px;
-    }
-}
-
 .modal-overlay {
     display: none;
     position: fixed;
@@ -197,4 +170,44 @@
 .modal-close:hover {
     background: #ff4d4d;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .admin-controls {
+        padding: 20px 15px;
+    }
+
+
+    .portfolio-item {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .portfolio-item img{
+        display: flex;
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-controls {
+        padding: 15px 10px;
+    }
+    .portfolio-item {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 200px;
+        max-height: 200px;
+
+
+    }
+
+
+    .portfolio-item img {
+        display: flex;
+        max-width: 200px;
+        max-height: 200px;
+    }
 }

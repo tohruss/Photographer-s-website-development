@@ -13,6 +13,7 @@ class EquipmentCategory extends Model
     public function equipment(){
         return $this->belongsTo(Equipment::class, 'equipment_id');
     }
+
     public function category(){
         return $this->belongsTo(CategoryOfEquipment::class, 'category_id');
     }
