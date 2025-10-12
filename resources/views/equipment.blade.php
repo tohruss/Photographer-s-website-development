@@ -67,8 +67,10 @@
                                 <p class="equipment-description">{{ $item->description }}</p>
                             @endif
 
+
                             @auth
                                 @if($user->isAdmin())
+                                        <a href="{{ route('equipment-edit', $item->id) }}" class="edit-btn">Редактировать</a>
                                     <form action="{{ url('/admin/equipment/' . $item->id) }}" method="POST" class="delete-form">
                                         @csrf
                                         @method('DELETE')

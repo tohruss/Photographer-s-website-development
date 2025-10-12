@@ -37,6 +37,18 @@ class EquipmentController extends Controller
             ->with('success', 'Оборудование успешно добавлено!');
     }
 
+    public function edit(string $id)
+    {
+        $equipment = Equipment::with('categories')->findOrFail($id);
+        $categories = CategoryOfEquipment::all(['id', 'name']);
+
+        return view('equipment-edit', [
+            'equipment' => $equipment,
+            'categories' => $categories,
+            'user' => auth()->user(),
+        ]);
+    }
+
 
     public function update(EquipmentRequest $request, string $id)
     {
@@ -51,7 +63,7 @@ class EquipmentController extends Controller
             'description' => $request->description,
         ]);
 
-        $equipment->categories()->sync($request->category_id);
+        $equipment->categories()->sync([$request->category_id]);
 
         return redirect()->route('equipment')
             ->with('success', 'Оборудование обновлено!');

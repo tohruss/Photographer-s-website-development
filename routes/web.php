@@ -49,7 +49,8 @@ Route::middleware(['auth','verified'])->group(function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/equipment', [EquipmentController::class, 'store']);
-//    Route::put('/equipment/{id}', [EquipmentController::class, 'update']);
+    Route::get('/equipment/{id}/edit', [EquipmentController::class, 'edit'])->name('equipment-edit');
+    Route::put('/admin/equipment/{id}', [EquipmentController::class, 'update'])->name('admin.equipment.update');
     Route::delete('/equipment/{id}', [EquipmentController::class, 'destroy']);
 
     Route::post('/portfolio', [PortfolioController::class, 'store'])->name('admin.portfolio.store');
