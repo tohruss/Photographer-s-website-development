@@ -12,7 +12,8 @@ class Service extends Model
         'title',
         'price',
         'description',
-        'photo'
+        'photo',
+        'is_available',
     ];
     public function favoriteServices(){
         return $this->belongsToMany(FavoriteService::class, 'service_id');

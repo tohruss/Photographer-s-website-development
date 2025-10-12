@@ -13,8 +13,8 @@ class EquipmentRequest extends FormRequest
         $rules = [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
-            'categorys_id' => 'required|array',
-            'categorys_id.*' => 'exists:categories_of_equipment,id',
+            'category_id' => 'required|array',
+            'category_id.*' => 'exists:categories_of_equipment,id',
         ];
 
         if ($this->isMethod('post')) {
@@ -34,8 +34,8 @@ class EquipmentRequest extends FormRequest
             'photo.image' => 'Файл должен быть изображением',
             'photo.mimes' => 'Допустимые форматы: jpeg, png, jpg, gif',
             'photo.max' => 'Размер изображения не должен превышать 5MB',
-            'categorys_id.required' => 'Выберите хотя бы одну категорию',
-            'categorys_id.*.exists' => 'Одна из выбранных категорий не существует',
+            'category_id.required' => 'Выберите хотя бы одну категорию',
+            'category_id.*.exists' => 'Одна из выбранных категорий не существует',
         ];
     }
 }

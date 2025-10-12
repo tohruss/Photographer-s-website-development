@@ -31,7 +31,7 @@ class EquipmentController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'photo' => $path,
-        ], $request->categorys_id);
+        ], $request->category_id);
 
         return redirect()->route('equipment')
             ->with('success', 'Оборудование успешно добавлено!');
@@ -51,7 +51,7 @@ class EquipmentController extends Controller
             'description' => $request->description,
         ]);
 
-        $equipment->categories()->sync($request->categorys_id);
+        $equipment->categories()->sync($request->category_id);
 
         return redirect()->route('equipment')
             ->with('success', 'Оборудование обновлено!');

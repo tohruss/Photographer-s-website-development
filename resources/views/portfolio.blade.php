@@ -13,6 +13,15 @@
                     <form action="{{ route('admin.portfolio.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="images[]" multiple accept="image/*" required>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul style="color:red;list-style-type: none">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <button type="submit">Добавить изображения в портфолио</button>
                     </form>
                 </div>

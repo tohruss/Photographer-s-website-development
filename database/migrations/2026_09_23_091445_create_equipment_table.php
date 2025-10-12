@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('photo');
             $table->string('description');
+            $table->boolean('is_available')->default(true);
         });
     }
 

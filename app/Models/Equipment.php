@@ -12,7 +12,8 @@ class Equipment extends Model
         'user_id',
         'title',
         'photo',
-        'description'
+        'description',
+        'is_available',
     ];
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
@@ -40,10 +41,10 @@ class Equipment extends Model
         $this->save();
     }
 
-    public static function createWithCategories(array $data, array $categoryIds)
+    public static function createWithCategories(array $data, array $categoryId)
     {
         $equipment = self::create($data);
-        $equipment->categories()->attach($categoryIds);
+        $equipment->categories()->attach($categoryId);
         return $equipment;
     }
 

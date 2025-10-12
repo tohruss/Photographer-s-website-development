@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('price');
             $table->string('description');
             $table->string('photo');
+            $table->boolean('is_available')->default(true);
         });
     }
 

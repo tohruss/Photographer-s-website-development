@@ -20,11 +20,20 @@
                         <div class="category-checkboxes">
                             @foreach($categories as $category)
                                 <label>
-                                    <input type="checkbox" name="categorys_id[]" value="{{ $category->id }}">
+                                    <input type="radio" name="category_id[]" value="{{ $category->id }}">
                                     {{ $category->name }}
                                 </label>
                             @endforeach
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul style="color:red;list-style-type: none">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <button type="submit">Добавить оборудование</button>
                     </form>
@@ -47,6 +56,11 @@
 
                     @foreach($category->equipments as $item)
                         <div class="equipment-card">
+                            @if($item->is_available)
+                                <span class="status-available">Доступно</span>
+                            @else
+                                <span class="status-unavailable">Недоступно</span>
+                            @endif
                             <img src="{{ $item->photo_url }}" alt="{{ $item->title }}" draggable="false">
                             <h4 class="equipment-title">{{ $item->title }}</h4>
                             @if($item->description)
