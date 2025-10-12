@@ -58,7 +58,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::post('/equipment/categories', [EquipmentController::class, 'createCategory']);
 //    Route::put('/equipment/categories/{id}', [EquipmentController::class, 'updateCategory']);
-    Route::delete('/equipment/categories/{id}', [EquipmentController::class, 'deleteCategory']);
+    Route::delete('/equipment/categories/{id}', [EquipmentController::class, 'deleteCategory'])->name('admin.equipment.delete-category');
 
     Route::post('/services', [ServiceController::class, 'store']);
     Route::put('/services/{id}', [ServiceController::class, 'update']);

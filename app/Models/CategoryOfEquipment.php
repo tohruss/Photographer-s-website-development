@@ -18,7 +18,13 @@ class CategoryOfEquipment extends Model
 
     public function safeDelete()
     {
+        $equipments = $this->equipments;
         $this->equipments()->detach();
         $this->delete();
+        foreach ($equipments as $equipment) {
+            if ($equipment->categories()->count() === 0) {
+                $equipment->update(['is_available' => false]);
+            }
+        }
     }
 }

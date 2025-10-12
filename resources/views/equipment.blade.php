@@ -52,7 +52,17 @@
         <div class="light_sources">
             @forelse($categories as $category)
                 @if($category->equipments->isNotEmpty())
-                    <h3 class="category-title">{{ $category->name }}</h3>
+                    <h3 class="category-title">{{ $category->name }}
+                        @auth
+                            @if($user->isAdmin())
+                                <form action="{{ route('admin.equipment.delete-category', $category->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-btn" onclick="return confirm('Удалить категорию «{{ $category->name }}»? Оборудование без других категорий станет недоступным.')">	&times;</button>
+                                </form>
+                            @endif
+                        @endauth
+                    </h3>
 
                     @foreach($category->equipments as $item)
                         <div class="equipment-card">
@@ -74,7 +84,7 @@
                                     <form action="{{ url('/admin/equipment/' . $item->id) }}" method="POST" class="delete-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="delete-btn" onclick="return confirm('Удалить это оборудование?')">×</button>
+                                        <button type="submit" class="delete-btn" onclick="return confirm('Удалить это оборудование?')">	&times;</button>
                                     </form>
                                 @endif
                             @endauth

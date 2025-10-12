@@ -114,9 +114,12 @@ hr {
 }
 
 .category-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    text-align: center;
     margin: 40px 0 20px 0;
+    gap: 10px;
     font-family: "Jost-black";
     font-size: 2rem;
 }
