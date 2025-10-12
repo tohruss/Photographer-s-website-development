@@ -39,7 +39,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="delete-btn"
-                                        onclick="return confirm('Удалить это изображение?')">×</button>
+                                        onclick="return confirm('Удалить это изображение?')">&times;</button>
                             </form>
                         @endif
                     @endauth

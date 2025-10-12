@@ -57,7 +57,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::delete('/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
 
     Route::post('/equipment/categories', [EquipmentController::class, 'createCategory']);
-//    Route::put('/equipment/categories/{id}', [EquipmentController::class, 'updateCategory']);
+    Route::get('/equipment/categories/{id}/edit', [EquipmentController::class, 'editCategory'])->name('admin.equipment.category.edit');
+    Route::put('/equipment/categories/{id}', [EquipmentController::class, 'updateCategory'])->name('admin.equipment.category.update');
     Route::delete('/equipment/categories/{id}', [EquipmentController::class, 'deleteCategory'])->name('admin.equipment.delete-category');
 
     Route::post('/services', [ServiceController::class, 'store']);

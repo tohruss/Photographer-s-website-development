@@ -95,6 +95,17 @@ class EquipmentController extends Controller
             ->with('success', 'Категория создана!');
     }
 
+    public function editCategory(string $id)
+    {
+        $category = CategoryOfEquipment::findOrFail($id);
+        $categories = CategoryOfEquipment::all(['id', 'name']);
+
+        return view('equipment-category-edit', [
+            'categories' => $categories,
+            'user' => auth()->user(),
+            'editingCategory' => $category,
+        ]);
+    }
     public function updateCategory(Request $request, string $id)
     {
         $validated = $request->validate([
@@ -110,6 +121,7 @@ class EquipmentController extends Controller
         return redirect()->route('equipment')
             ->with('success', 'Категория обновлена!');
     }
+
 
     public function deleteCategory(string $id)
     {

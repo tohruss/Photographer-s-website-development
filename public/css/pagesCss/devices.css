@@ -191,7 +191,12 @@ hr {
     text-align: center;
     margin-top: 40px;
 }
-
+.redact-info{
+    font-family: "Jost-regulat";
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
 @media (max-width: 1184px) {
     main > p {
         max-width: 90vw;

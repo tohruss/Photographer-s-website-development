@@ -55,6 +55,7 @@
                     <h3 class="category-title">{{ $category->name }}
                         @auth
                             @if($user->isAdmin())
+                                <a href="{{ route('admin.equipment.category.edit', $category->id) }}" class="redact-info">Редактировать &#9997;</a>
                                 <form action="{{ route('admin.equipment.delete-category', $category->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
@@ -80,7 +81,7 @@
 
                             @auth
                                 @if($user->isAdmin())
-                                        <a href="{{ route('equipment-edit', $item->id) }}" class="edit-btn">Редактировать</a>
+                                        <a href="{{ route('equipment-edit', $item->id) }}" class="redact-info">Редактировать &#9997;</a>
                                     <form action="{{ url('/admin/equipment/' . $item->id) }}" method="POST" class="delete-form">
                                         @csrf
                                         @method('DELETE')
