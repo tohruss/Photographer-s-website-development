@@ -24,10 +24,5 @@ window.addEventListener('click', (ev) => {
 
         // Обновляем меню и картинку
         menu.style.display = isActive ? 'block' : 'none';
-
-        // Пример смены иконки через псевдоэлемент (если нужно)
-        arrow.style.backgroundImage = isActive
-            ? 'url(chevron-down.png)'
-            : 'url(chevron-up.png)';
     }
 });
