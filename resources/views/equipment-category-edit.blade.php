@@ -28,7 +28,7 @@
 
                 <div>
                     <button type="submit">Сохранить изменения</button>
-                    <button><a href="{{ route('equipment') }}" style="text-decoration: none;color: white">Отмена</a></button>
+                    <button type="button" onclick="window.history.back()">Отмена</button>
                 </div>
             </form>
         </div>

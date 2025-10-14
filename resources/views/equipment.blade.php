@@ -13,7 +13,7 @@
                     <form action="{{ url('/admin/equipment') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="title" placeholder="Название оборудования" required>
-                        <textarea name="description" placeholder="Описание (необязательно)"></textarea>
+                        <textarea name="description" placeholder="Описание оборудования"></textarea>
                         <input type="file" name="photo" accept="image/*" required>
 
                         <label>Категории:</label>

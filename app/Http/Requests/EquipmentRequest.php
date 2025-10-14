@@ -17,9 +17,9 @@ class EquipmentRequest extends FormRequest
         ];
 
         if ($this->isMethod('post')) {
-            $rules['photo'] = 'required|image|mimes:jpeg,png,jpg,gif|max:5120';
+            $rules['photo'] = 'required|image|mimes:jpeg,png,jpg,gif|max:2048';
         } elseif ($this->hasFile('photo')) {
-            $rules['photo'] = 'required|image|mimes:jpeg,png,jpg,gif|max:5120';
+            $rules['photo'] = 'required|image|mimes:jpeg,png,jpg,gif|max:2048';
         }
 
         return $rules;
@@ -32,8 +32,8 @@ class EquipmentRequest extends FormRequest
             'photo.required' => 'Фото обязательно',
             'photo.image' => 'Файл должен быть изображением',
             'photo.mimes' => 'Допустимые форматы: jpeg, png, jpg, gif',
-            'photo.max' => 'Размер изображения не должен превышать 5MB',
-            'category_id.required' => 'Выберите хотя бы одну категорию',
+            'photo.max' => 'Размер изображения не должен превышать 2MB',
+            'category_id.required' => 'Выберите одну категорию',
         ];
     }
 }

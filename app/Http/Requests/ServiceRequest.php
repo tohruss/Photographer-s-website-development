@@ -11,9 +11,8 @@ class ServiceRequest extends ApiRequest
             'title' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
             'description' => 'nullable|string|max:1000',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'categorys_id' => 'required|array',
-            'categorys_id.*' => 'exists:categories_of_services,id',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category_id' => 'required|exists:categories_of_equipment,id',
         ];
     }
 
@@ -26,9 +25,8 @@ class ServiceRequest extends ApiRequest
             'photo.required' => 'Фото обязательно',
             'photo.image' => 'Файл должен быть изображением',
             'photo.mimes' => 'Допустимые форматы: jpeg, png, jpg, gif',
-            'photo.max' => 'Размер изображения не должен превышать 5MB',
-            'categorys_id.required' => 'Выберите хотя бы одну категорию',
-            'categorys_id.*.exists' => 'Одна из выбранных категорий не существует',
+            'photo.max' => 'Размер изображения не должен превышать 2MB',
+            'category_id.required' => 'Выберите одну категорию',
         ];
     }
 }

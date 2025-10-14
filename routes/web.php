@@ -62,10 +62,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::delete('/equipment/categories/{id}', [EquipmentController::class, 'deleteCategory'])->name('admin.equipment.delete-category');
 
     Route::post('/services', [ServiceController::class, 'store']);
-    Route::put('/services/{id}', [ServiceController::class, 'update']);
+    Route::get('/services/{id}/edit', [ServiceController::class, 'edit'])->name('service-edit');
+    Route::put('/services/{id}', [ServiceController::class, 'update'])->name('admin.service.update');
     Route::delete('/services/{id}', [ServiceController::class, 'destroy']);
 
     Route::post('/services/categories', [ServiceController::class, 'createCategory']);
-    Route::put('/services/categories/{id}', [ServiceController::class, 'updateCategory']);
-    Route::delete('/services/categories/{id}', [ServiceController::class, 'deleteCategory']);
+    Route::get('/services/categories/{id}/edit', [ServiceController::class, 'editCategory'])->name('admin.service.category.edit');
+    Route::put('/services/categories/{id}', [ServiceController::class, 'updateCategory'])->name('admin.service.category.update');
+    Route::delete('/services/categories/{id}', [ServiceController::class, 'deleteCategory'])->name('admin.service.delete-category');
 });
