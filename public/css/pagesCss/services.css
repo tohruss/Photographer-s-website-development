@@ -114,13 +114,14 @@ hr {
 .status-available {
     color: green;
     font-weight: bold;
+    margin: 0 auto;
 }
 
 .status-unavailable {
     color: red;
     font-weight: bold;
+    margin: 0 auto;
 }
-
 .light_sources {
     display: flex;
     flex-wrap: wrap;
@@ -155,6 +156,7 @@ hr {
 }
 .priceContent{
     display: flex;
+    flex-direction: column;
 }
 .priceContent > div{
     display: flex;
@@ -165,10 +167,17 @@ hr {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    width: 100%;
+    padding: 0 20px;
 }
 .priceContent > div > div > div{
+    max-width: 750px;
     display: flex;
     flex-direction: column;
+}
+.priceContent > div > div > div >img{
+    max-width: 750px;
+    min-width: 440px;
 }
 .equipment-card img {
     object-fit: cover;
@@ -193,7 +202,17 @@ hr {
     line-height: 1.4;
     margin-bottom: 8px;
 }
-
+.service-ed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.title-service{
+    font-family: Jost-black;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
 .delete-form {
     position: absolute;
     top: 10px;

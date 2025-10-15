@@ -77,24 +77,26 @@
                                 @else
                                     <span class="status-unavailable">Недоступно</span>
                                 @endif
+                                    @auth
+                                        @if($user->isAdmin())
+                                            <div class="service-ed">
+                                                <a href="{{ route('service-edit', $service->id) }}" class="redact-info">Редактировать &#9997;</a>
+                                                <form action="{{ url('/admin/services/' . $service->id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="delete-btn" onclick="return confirm('Удалить услугу?')">	&times;</button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    @endauth
                                 <img src="{{ $service->photo_url }}" alt="{{ $service->title }}" class="imgPr">
-                                <p>{{ $service->title }}</p>
-                                <p>{{ number_format($service->price, 0, '', ' ') }} ₽</p>
+                                <p class="title-service">{{ $service->title }}</p>
+                                <p>{{ number_format($service->price, 0, '', ' ') }} руб.</p>
                                 @if($service->description)
                                     <ul>
                                         {!! nl2br(e(str_replace("\n", "\n • ", $service->description))) !!}
                                     </ul>
                                 @endif
-                                @auth
-                                    @if($user->isAdmin())
-                                        <a href="{{ route('service-edit', $service->id) }}" class="redact-info">Редактировать &#9997;</a>
-                                        <form action="{{ url('/admin/services/' . $service->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="delete-btn" onclick="return confirm('Удалить услугу?')">	&times;</button>
-                                        </form>
-                                    @endif
-                                @endauth
                             </div>
                         @endforeach
                     </div>
