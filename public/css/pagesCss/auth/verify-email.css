@@ -21,13 +21,13 @@ body {
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .card-header {
     background-color: #f0f0f0;
     padding: 20px;
     border-bottom: 1px solid #ddd;
-    border-radius: 10px 10px 0 0;
     font-family: "Jost-bold";
     font-size: 1.5rem;
     text-align: center;
@@ -37,14 +37,73 @@ body {
     padding: 30px;
 }
 
-.card-body p {
-    font-family: "Jost-regulat";
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: #555;
-    line-height: 1.6;
+.card-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+.card-body label {
+    display: block;
+    font-family: "Jost-bold";
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.card-body input[type="email"],
+.card-body input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: "Jost-regulat";
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+.card-body input[type="email"]:focus,
+.card-body input[type="password"]:focus {
+    outline: none;
+    border-color: #E7CFCD;
+}
+
+.card-body .error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 6px;
+    display: block;
+}
+
+.card-body button {
+    background-color: #E7CFCD;
+    color: white;
+    font-family: "Jost-bold";
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+}
+
+.card-body button:hover {
+    background-color: #CAB1BD;
+}
+
+/* Стиль для сообщения об успешной отправке */
+.card-body > div {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: "Jost-regulat";
+}
+
+/* Общие ссылки (если понадобятся) */
 .card-body a {
     color: #E7CFCD;
     text-decoration: none;
@@ -73,8 +132,13 @@ body {
         font-size: 1.3rem;
     }
 
-    .card-body p {
-        font-size: 1rem;
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-body button {
+        width: 100%;
+        align-self: stretch;
     }
 }
 
@@ -87,7 +151,22 @@ body {
         font-size: 1.2rem;
     }
 
-    .card-body p {
+    .card-body {
+        padding: 16px;
+    }
+
+    .card-body label {
         font-size: 0.95rem;
+    }
+
+    .card-body input[type="email"],
+    .card-body input[type="password"] {
+        font-size: 0.9rem;
+        padding: 9px 10px;
+    }
+
+    .card-body button {
+        padding: 12px;
+        font-size: 1rem;
     }
 }
