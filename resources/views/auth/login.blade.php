@@ -24,7 +24,7 @@
                 <label for="password">Введите пароль</label>
                 <input type="password" id="password" name="password" required>
                 @error('password') <span class="error">{{ $message }}</span> @enderror
-                <a href="#">Забыли пароль?</a>
+                <a href="{{ route('password.request') }}">Забыли пароль?</a>
             </div>
 
             <button type="submit">Войти</button>
