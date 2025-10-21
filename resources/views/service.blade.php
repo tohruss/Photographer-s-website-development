@@ -52,6 +52,7 @@
             </div>
         @endif
     @endauth
+
     <div class="priceContent">
         @forelse($categories as $category)
             @if($category->services->isNotEmpty())
@@ -77,18 +78,43 @@
                                 @else
                                     <span class="status-unavailable">Недоступно</span>
                                 @endif
-                                    @auth
-                                        @if($user->isAdmin())
-                                            <div class="service-ed">
-                                                <a href="{{ route('service-edit', $service->id) }}" class="redact-info">Редактировать &#9997;</a>
-                                                <form action="{{ url('/admin/services/' . $service->id) }}" method="POST" style="display:inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="delete-btn" onclick="return confirm('Удалить услугу?')">	&times;</button>
-                                                </form>
-                                            </div>
+                                @auth
+                                    @if($user->isAdmin())
+                                        <div class="service-ed">
+                                            <a href="{{ route('service-edit', $service->id) }}" class="redact-info">Редактировать &#9997;</a>
+                                            <form action="{{ url('/admin/services/' . $service->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="delete-btn" onclick="return confirm('Удалить услугу?')">	&times;</button>
+                                            </form>
+                                        </div>
+                                    @endif
+                                @endauth
+                                @auth
+                                    @unless($user->isAdmin())
+                                    <div class="favorite-star-container">
+                                        @php
+                                            $isFavorited = \App\Models\FavoriteService::where('user_id', auth()->id())->where('service_id', $service->id)->exists();
+                                        @endphp
+                                        @if($isFavorited)
+                                            <form action="{{ route('favorites.remove', $service->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="favorite-star-btn unfavorited" title="Удалить из избранного">
+                                                    <span class="star-icon"></span>
+                                                </button>
+                                            </form>
+                                        @else
+                                            <form action="{{ route('favorites.add', $service->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                <button type="submit" class="favorite-star-btn favorited" title="Добавить в избранное">
+                                                    <span class="star-icon"></span>
+                                                </button>
+                                            </form>
                                         @endif
-                                    @endauth
+                                    </div>
+                                    @endunless
+                                @endauth
                                 <img src="{{ $service->photo_url }}" alt="{{ $service->title }}" class="imgPr">
                                 <p class="title-service">{{ $service->title }}</p>
                                 <p>{{ number_format($service->price, 0, '', ' ') }} руб.</p>
@@ -106,4 +132,5 @@
             <p>Услуги пока не добавлены.</p>
         @endforelse
     </div>
+
 @endsection

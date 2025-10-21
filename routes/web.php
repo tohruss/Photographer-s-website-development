@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserInfoController;
@@ -86,7 +87,7 @@ Route::get('/login', [UserInfoController::class, 'showLoginForm'])->name('login'
 Route::post('/registration', [UserInfoController::class, 'register'])->name('registration');
 Route::post('/login', [UserInfoController::class, 'login'])->name('login.submit');
 Route::post('/logout', [UserInfoController::class, 'logout'])->name('logout');
-Route::get('/favorites', [UserInfoController::class, 'favorites'])->name('favorites');
+
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/studios', function () {return view('studios');})->name('studios');
@@ -98,6 +99,9 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile', [UserInfoController::class, 'showProfile'])->name('profile');
     Route::get('/profile/edit', [UserInfoController::class, 'showEditForm'])->name('profile.edit');
     Route::put('/profile', [UserInfoController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites');
+    Route::post('/favorites/{serviceId}', [FavoriteController::class, 'addToFavorites'])->name('favorites.add');
+    Route::delete('/favorites/{serviceId}', [FavoriteController::class, 'removeFromFavorites'])->name('favorites.remove');
 });
 
 

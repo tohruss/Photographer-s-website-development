@@ -17,7 +17,7 @@ class Service extends Model
         'is_available',
     ];
     public function favoriteServices(){
-        return $this->belongsToMany(FavoriteService::class, 'service_id');
+        return $this->hasMany(FavoriteService::class, 'service_id');
     }
     public function categories(){
         return $this->belongsToMany(CategoryOfService::class, 'service_category', 'service_id', 'category_id');

@@ -7,6 +7,58 @@
     font-family: "Jost-regulat";
 }
 
+/* Стили для контейнера карточки услуги - добавляем relative */
+.priceContent > div > div > div {
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* <-- Добавлено */
+}
+
+/* Стили для контейнера звезды */
+.favorite-star-container {
+    position: absolute;
+    top: 510px;
+    right: 10px;
+    z-index: 100;
+}
+
+.favorite-star-container form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.favorite-star-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.favorite-star-btn .star-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.favorite-star-btn .star-icon::before {
+    content: url(/img/stock-star.png);
+}
+
+.favorite-star-btn.unfavorited .star-icon::before {
+    content: url(/img/active-star.png);
+}
+
+.favorite-star-btn.favorited:hover .star-icon::before {
+    content: url(/img/hover-star.png);
+}
+
+.favorite-star-btn.unfavorited:hover .star-icon::before {
+    content: url(/img/active-star.png);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -122,6 +174,7 @@ hr {
     font-weight: bold;
     margin: 0 auto;
 }
+
 .light_sources {
     display: flex;
     flex-wrap: wrap;
@@ -154,6 +207,7 @@ hr {
     max-width: 330px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
 .priceContent{
     display: flex;
     flex-direction: column;
@@ -174,6 +228,7 @@ hr {
     max-width: 750px;
     display: flex;
     flex-direction: column;
+
 }
 .priceContent > div > div > div >img{
     max-width: 750px;
@@ -254,7 +309,6 @@ hr {
     font-size: 1rem;
 }
 
-/* Адаптивность */
 @media (max-width: 1184px) {
     .equipment-description {
         max-width: 200px;
