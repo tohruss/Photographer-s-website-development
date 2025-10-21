@@ -7,15 +7,14 @@
     font-family: "Jost-regulat";
 }
 
-/* Стили для контейнера карточки услуги - добавляем relative */
+
 .priceContent > div > div > div {
     max-width: 750px;
     display: flex;
     flex-direction: column;
-    position: relative; /* <-- Добавлено */
+    position: relative;
 }
 
-/* Стили для контейнера звезды */
 .favorite-star-container {
     position: absolute;
     top: 510px;
@@ -44,19 +43,19 @@
 }
 
 .favorite-star-btn .star-icon::before {
-    content: url(/img/stock-star.png);
+    content: url(../../img/stock-star.png);
 }
 
 .favorite-star-btn.unfavorited .star-icon::before {
-    content: url(/img/active-star.png);
+    content: url(../../img/active-star.png);
 }
 
 .favorite-star-btn.favorited:hover .star-icon::before {
-    content: url(/img/hover-star.png);
+    content: url(../../img/hover-star.png);
 }
 
 .favorite-star-btn.unfavorited:hover .star-icon::before {
-    content: url(/img/active-star.png);
+    content: url(../../img/active-star.png);
 }
 
 main {
