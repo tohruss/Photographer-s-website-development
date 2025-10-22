@@ -9,11 +9,16 @@ class Review extends Model
     protected $table = 'reviews';
     public $timestamps = false;
     protected $fillable = [
-        'author_name',
         'link_to_media',
         'comment',
-        'is_approved'
+        'is_approved',
+        'user_id',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function reviewLike(){
         return $this->hasMany(ReviewLike::class, 'review_id');
     }

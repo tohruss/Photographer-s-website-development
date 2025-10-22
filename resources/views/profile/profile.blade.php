@@ -37,7 +37,7 @@
                     <div class="user-button">
                         <div>
                             @if($user->isAdmin())
-                            <a href="{{ route('favorites') }}">Просмотр отзывов</a>
+                                <a href="{{ route('admin.reviews') }}">Просмотр отзывов</a>
                             @else
                                 <a href="{{ route('favorites') }}">Просмотр избранного</a>
                             @endif

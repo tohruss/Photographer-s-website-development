@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.admin-reviews-page {
+    padding: 2rem 0;
+}
+
+.admin-reviews-page h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    color: #333;
+    font-family: "Jost", sans-serif;
+}
+
+/* Карточка отзыва в админке */
+.admin-review-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.admin-review-card .avatar-wrapper img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid #CFD8D7; /* платиновый */
+}
+
+.admin-review-card .content {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-review-card .author-name {
+    font-family: "Jost-ExtraLight";
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.admin-review-card .comment {
+    font-family: "Jost-light";
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.admin-review-card .meta {
+    font-family: "Jost", sans-serif;
+    font-size: 1rem;
+    color: #9F9AA4; /* розовый кварц */
+    margin-bottom: 1rem;
+}
+
+.admin-review-card .meta strong {
+    color: #333;
+}
+
+.admin-review-card .actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.admin-review-card .btn-action {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: "Jost", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.admin-review-card .btn-action.btn-approve {
+    background-color: #10B981; /* green-500 */
+    color: white;
+}
+
+.admin-review-card .btn-action.btn-approve:hover {
+    background-color: #059669;
+}
+
+.admin-review-card .btn-action.btn-hide {
+    background-color: #F59E0B; /* amber-500 */
+    color: white;
+}
+
+.admin-review-card .btn-action.btn-hide:hover {
+    background-color: #D97706;
+}
+
+.admin-review-card .btn-action.btn-delete {
+    background-color: #EF4444; /* red-500 */
+    color: white;
+}
+
+.admin-review-card .btn-action.btn-delete:hover {
+    background-color: #DC2626;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+@media all and (max-width: 768px) {
+    .admin-review-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .admin-review-card .avatar-wrapper img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .admin-review-card .content {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .admin-review-card .avatar-wrapper img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .admin-review-card .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .admin-review-card .btn-action {
+        width: 100%;
+        text-align: center;
+    }
+}

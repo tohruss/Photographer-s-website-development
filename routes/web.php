@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Review;
 use App\Http\Controllers\FavoriteController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -93,7 +93,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/studios', function () {return view('studios');})->name('studios');
     Route::get('/contacts', function () {return view('contacts');})->name('contacts');
     Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-    Route::get('/reviews', [ReviewController::class, 'reviews'])->name('reviews');
+    Route::get('/reviews', function () {return view('reviews');})->name('reviews');
     Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment');
     Route::get('/services', [ServiceController::class, 'index'])->name('services');
     Route::get('/profile', [UserInfoController::class, 'showProfile'])->name('profile');
@@ -128,4 +128,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/services/categories/{id}/edit', [ServiceController::class, 'editCategory'])->name('admin.service.category.edit');
     Route::put('/services/categories/{id}', [ServiceController::class, 'updateCategory'])->name('admin.service.category.update');
     Route::delete('/services/categories/{id}', [ServiceController::class, 'deleteCategory'])->name('admin.service.delete-category');
+
+    Route::get('/admin/reviews', function () {
+        $reviews = Review::with('reviewLike')
+            ->get();
+        return view('admin.reviews', compact('reviews'));
+    })->name('admin.reviews');
+    Route::post('/reviews/{id}/approve', [ReviewController::class, 'approve'])->name('reviews.approve');
+    Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 });

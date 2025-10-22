@@ -3,62 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class ReviewController extends Controller
 {
 
-    public function index(): JsonResponse
-    {
-        $reviews = Review::where('is_approved', true)
-            ->get([
-                'id',
-                'author_name',
-                'link_to_media',
-                'comment'
-            ])
-            ->map(function ($review) {
-                // Подсчитываем количество лайков (like = 1)
-                $likes = $review->reviewLike->where('like', 1)->count();
-
-                $review->likes_count = $likes;
-                unset($review->reviewLike); // убираем связь из ответа
-
-                return $review;
-            });
-
-        return response()->json([
-            'success' => true,
-            'data' => $reviews,
-        ]);
-    }
-
-
-    public function approve(string $id, bool $approve = true): JsonResponse
+    public function approve(string $id, bool $approve = true)
     {
         $review = Review::findOrFail($id);
         $review->is_approved = $approve;
         $review->save();
 
-        return response()->json([
-            'success' => true,
-            'message' => $approve
-                ? 'Отзыв одобрен'
-                : 'Отзыв скрыт',
-        ]);
+        return Redirect::back()->with('success', $approve ? 'Отзыв одобрен' : 'Отзыв скрыт');
     }
 
-    public function destroy(string $id): JsonResponse
+    public function destroy(string $id)
     {
         $review = Review::findOrFail($id);
 
         $review->reviewLike()->delete();
-
         $review->delete();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Отзыв удалён',
-        ]);
+        return Redirect::back()->with('success', 'Отзыв удалён');
     }
 }
