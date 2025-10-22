@@ -7,6 +7,52 @@
     box-sizing: border-box;
 }
 
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    font-family: "Jost", sans-serif;
+    font-size: 1rem;
+    color: #EF4444; /* красный */
+}
+.review-success-message {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #E7CFCD; /* бледный кизил — из твоего стайлгайда */
+    color: white;
+    font-family: "Jost", sans-serif;
+    font-size: 1.125rem; /* 18px */
+    font-weight: 500;
+    border-radius: 12px;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.like-button:hover .heart-icon {
+    filter: brightness(0.9);
+}
+
+.heart-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+}
+
+.heart-icon:hover {
+    transform: scale(1.1);
+}
+
+.likes-count {
+    font-weight: 500;
+    color: #9F9AA4; /* розовый кварц */
+}
+
 .review-container {
     margin: 2rem auto;
     display: flex;

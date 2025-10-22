@@ -15,7 +15,7 @@
                 </div>
                 <p>{{ $review->comment }}</p>
                 <div class="footer">
-                    <span class="likes">❤️ {{ $review->likes_count }}</span>
+                    <livewire:review-like-button :review-id="$review->id" />
                 </div>
             </div>
         </div>

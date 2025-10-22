@@ -4,13 +4,14 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Review;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewModal extends Component
 {
     public $showModal = false;
-    public $author_name = '';
     public $link_to_media = '';
     public $comment = '';
+    public $message = ''; // ← для сообщения об успехе
 
     protected $rules = [
         'comment' => 'required|string',
@@ -36,12 +37,15 @@ class ReviewModal extends Component
             'link_to_media' => $this->link_to_media,
             'comment' => $this->comment,
             'is_approved' => false,
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
         ]);
 
-        $this->reset();
+        $this->message = 'Ваш отзыв успешно отправлен на модерацию!';
+        $this->reset(['link_to_media', 'comment']);
         $this->showModal = false;
-        session()->flash('success', 'Ваш отзыв успешно отправлен на модерацию!');
+
+        // Опционально: скрыть сообщение через 5 секунд
+        $this->dispatch('reviewSubmitted');
     }
 
     public function render()

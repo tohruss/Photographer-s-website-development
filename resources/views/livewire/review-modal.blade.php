@@ -2,6 +2,11 @@
     <div class="leave-review-button">
         <button wire:click="openModal">Оставить отзыв</button>
     </div>
+    @if($message)
+        <div class="review-success-message">
+            {{ $message }}
+        </div>
+    @endif
 
     @if($showModal)
         <div class="review-modal-overlay" wire:click="closeModal">

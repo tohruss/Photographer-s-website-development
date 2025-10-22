@@ -34,11 +34,6 @@
                                 @csrf
                                 <button type="submit" class="btn-action btn-approve">✅ Одобрить</button>
                             </form>
-                        @else
-                            <form action="{{ route('reviews.approve', [$review->id, false]) }}" method="POST" style="display:inline;">
-                                @csrf
-                                <button type="submit" class="btn-action btn-hide">❌ Скрыть</button>
-                            </form>
                         @endif
 
                         <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display:inline;">
