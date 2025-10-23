@@ -31,7 +31,7 @@
         <div class="portfolio-grid">
             @foreach($portfolioItems as $item)
                 <div class="portfolio-item">
-                    <img draggable="false" src="{{ $item->photo_url }}" alt="Фото портфолио">
+                    <img loading="lazy" draggable="false" src="{{ $item->photo_url }}" alt="Фото портфолио">
 
                     @auth
                         @if($user->isAdmin())

@@ -31,13 +31,9 @@
                 <div class="dropdown-menu" style="display: none;">
                     @auth
                         <a href="{{ route('profile') }}">ПРОФИЛЬ</a>
-                        <div class="language-option">
-                            <span>ЯЗЫК:</span>
-                            <strong>RU</strong>
-                        </div>
                         <form method="POST" action="{{ route('logout') }}" style="margin-top: 12px;">
                             @csrf
-                            <button class="exit" type="submit" style="background: none; border: none; color: #333; font-family: 'Jost-regulat'; font-size: 1rem; cursor: pointer; width: 100%; text-align: left;">
+                            <button class="exit" type="submit" style="background: none; border: none; font-family: 'Jost-regulat'; font-size: 1rem; cursor: pointer; width: 100%; text-align: left;">
                                 ВЫХОД
                             </button>
                         </form>
@@ -46,10 +42,6 @@
                     @guest
                         <a href="{{ route('login') }}">ВХОД</a>
                         <a href="{{ route('registration') }}">РЕГИСТРАЦИЯ</a>
-                        <div class="language-option">
-                            <span>ЯЗЫК:</span>
-                            <strong>RU</strong>
-                        </div>
                     @endguest
                 </div>
             </div>

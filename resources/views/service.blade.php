@@ -115,7 +115,7 @@
                                     </div>
                                     @endunless
                                 @endauth
-                                <img src="{{ $service->photo_url }}" alt="{{ $service->title }}" class="imgPr">
+                                <img draggable="false" src="{{ $service->photo_url }}" alt="{{ $service->title }}" class="imgPr">
                                 <p class="title-service">{{ $service->title }}</p>
                                 <p>{{ number_format($service->price, 0, '', ' ') }} руб.</p>
                                 @if($service->description)

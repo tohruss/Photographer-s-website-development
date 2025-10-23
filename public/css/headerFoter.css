@@ -116,25 +116,21 @@ footer > div > img{
     font-family: "Jost-regulat";
 }
 
-.dropdown-menu a,
-.dropdown-menu .language-option {
+.dropdown-menu a{
     display: block;
     padding: 8px 0;
     color: white;
     text-decoration: none;
     font-size: 1rem;
-
+}
+.dropdown-menu a:first-child{
+    border-bottom: 1px solid #eee;
 }
 
 .dropdown-menu a:hover {
     color: #9F9AA4;
 }
 
-.language-option {
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #eee;
-}
 .arrowBurger {
     transition: transform 0.3s ease;
 }

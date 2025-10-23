@@ -3,7 +3,7 @@
         <div class="review-item">
             <div class="avatar-wrapper">
                 @if($review->user?->userInfo?->avatar)
-                    <img src="{{ Storage::url($review->user->userInfo->avatar) }}" alt="Аватар" class="rounded-circle">
+                    <img draggable="false" src="{{ Storage::url($review->user->userInfo->avatar) }}" alt="Аватар" class="rounded-circle">
                 @else
                     <img draggable="false" src="{{ asset('img/Group30.svg') }}" alt="Аватар по умолчанию" class="rounded-circle">
                 @endif
