@@ -10,7 +10,7 @@
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
-    font-family: "Jost-ExtraLight";
+    font-family: "Jost-ExtraLight", sans-serif;
     cursor: pointer;
 }
 .leave-review-button > button:hover{

@@ -23,7 +23,7 @@ nav > div{
 nav >div> a{
     text-decoration: none;
     color: black;
-    font-family:"Jost-regulat";
+    font-family:"Jost-regulat", sans-serif;
     font-size: 1.5rem;
 
 }
@@ -31,7 +31,7 @@ nav >a{
     display: flex;
     text-decoration: none;
     color: black;
-    font-family: "Jost-medium";
+    font-family: "Jost-medium", sans-serif;
     font-size: 2rem;
 }
 nav>div>a:hover{
@@ -62,7 +62,7 @@ footer > div >div{
     display: flex;
     text-decoration: none;
     color:white;
-    font-family: "Jost-medium";
+    font-family: "Jost-medium", sans-serif;
     font-size: 2rem;
 }
 .footer-name>a:hover{
@@ -71,7 +71,7 @@ footer > div >div{
 .footer-link > div > a{
     text-decoration: none;
     color: white;
-    font-family:"Jost-regulat";
+    font-family:"Jost-regulat", sans-serif;
     font-size: 1.5rem;
 }
 .footer-link>div>a:hover{
@@ -113,7 +113,7 @@ footer > div > img{
     padding: 12px;
     z-index: 1000;
     min-width: 140px;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
 }
 
 .dropdown-menu a{
@@ -230,7 +230,7 @@ footer > div > img{
         display: flex;
         text-decoration: none;
         color: black;
-        font-family: "Jost-regulat";
+        font-family: "Jost-regulat", sans-serif;
         font-size: 1.8rem;
     }
     .burger > a:hover{

@@ -6,11 +6,11 @@
 }
 body {
     background-color: #f9f9f9;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     flex-direction: column;
 }
 .title-form{
-    font-family:"Jost-black";
+    font-family:"Jost-black", sans-serif;
     font-size: 2.25rem;
     text-align: center;
 
@@ -30,7 +30,7 @@ form{
 .lable-form-container > a{
     display: flex;
     justify-content: flex-end;
-    font-family: "Jost-medium";
+    font-family: "Jost-medium", sans-serif;
     color: black;
     text-decoration: none;
     padding-top: 10px;
@@ -44,7 +44,7 @@ input[type="tel"] {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 1rem;
     background-color: rgba(220, 220, 220, 0.3);
     outline: none;
@@ -65,7 +65,7 @@ button {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-family: "Jost-bold";
+    font-family: "Jost-bold", sans-serif;
     font-size: 1.2rem;
     margin-top: 10px;
     transition: background-color 0.2s;
@@ -89,7 +89,7 @@ button:active {
 .form-footer a {
     color: #E7CFCD;
     text-decoration: none;
-    font-family: "Jost-medium";
+    font-family: "Jost-medium", sans-serif;
 }
 
 .form-footer a:hover {

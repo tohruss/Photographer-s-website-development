@@ -92,7 +92,6 @@ body {
     background-color: #CAB1BD;
 }
 
-/* Стиль для сообщения об успешной отправке */
 .card-body > div {
     margin-top: 15px;
     padding: 10px;
@@ -103,7 +102,6 @@ body {
     font-family: "Jost-regulat";
 }
 
-/* Общие ссылки (если понадобятся) */
 .card-body a {
     color: #E7CFCD;
     text-decoration: none;
@@ -115,7 +113,7 @@ body {
     color: #CAB1BD;
 }
 
-/* Адаптивность */
+
 @media (max-width: 1200px) {
     .container {
         max-width: 80%;

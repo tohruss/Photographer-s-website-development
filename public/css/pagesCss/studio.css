@@ -13,7 +13,7 @@ main > div:first-child{
     background-color:#9F9AA4;
 }
 main > div:first-child > p{
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     color: white;
     font-size: 2.25rem;
 }
@@ -34,9 +34,9 @@ main > div:last-child > div{
 main > div:last-child > div > a{
     text-decoration: none;
     color: black;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 2rem;
-    
+
 }
 main  div:last-child img{
     object-fit: cover;
@@ -49,7 +49,6 @@ main div:hover img:not(:hover){
     opacity: 0.5;
 }
 
-/* тут мы делаем адаптивность для блоков фотостудий */
 @media screen and (max-width: 1899px){
     main > div:last-child{
         max-width: 90vw;

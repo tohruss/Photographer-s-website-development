@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
 }
 
 .container {
@@ -60,7 +60,7 @@ form{
 }
 
 .form-label {
-    font-family: "Jost-bold";
+    font-family: "Jost-bold", sans-serif;
     font-size: 1.2rem;
     color: #333;
 }
@@ -69,7 +69,7 @@ form{
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 1rem;
     background-color: rgba(220, 220, 220, 0.3);
     outline: none;
@@ -82,7 +82,7 @@ form{
 
 .form-control-file {
     padding: 20px;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 1rem;
     cursor: pointer;
 }
@@ -107,7 +107,7 @@ button,
     width: 100%;
     justify-content: center;
     align-items: center;
-    font-family: "Jost-bold";
+    font-family: "Jost-bold", sans-serif;
     text-decoration: none;
     color: white;
     padding: 20px;

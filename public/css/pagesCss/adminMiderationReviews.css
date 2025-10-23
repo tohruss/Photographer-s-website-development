@@ -15,7 +15,6 @@
     font-family: "Jost", sans-serif;
 }
 
-/* Карточка отзыва в админке */
 .admin-review-card {
     background: white;
     border-radius: 12px;
@@ -41,14 +40,14 @@
 }
 
 .admin-review-card .author-name {
-    font-family: "Jost-ExtraLight";
+    font-family: "Jost-ExtraLight", sans-serif;
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 0.5rem;
 }
 
 .admin-review-card .comment {
-    font-family: "Jost-light";
+    font-family: "Jost-light", sans-serif;
     font-size: 1.25rem;
     line-height: 1.6;
     color: #333;

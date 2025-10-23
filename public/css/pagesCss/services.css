@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
 }
 
 
@@ -190,7 +190,7 @@ hr {
     width: 100%;
     margin: 40px 0 20px 0;
     gap: 10px;
-    font-family: "Jost-black";
+    font-family: "Jost-black", sans-serif;;
     font-size: 2rem;
 }
 
@@ -242,14 +242,14 @@ hr {
 }
 
 .equipment-title {
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 16px;
     text-align: center;
     margin-bottom: 8px;
 }
 
 .equipment-description {
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 12px;
     text-align: center;
     color: #555;
@@ -263,7 +263,7 @@ hr {
     gap: 10px;
 }
 .title-service{
-    font-family: Jost-black;
+    font-family: "Jost-black", sans-serif;
     font-size: 1.5rem;
     padding-bottom: 10px;
 }
@@ -294,7 +294,7 @@ hr {
 }
 
 .no-equipment {
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     font-size: 1.2rem;
     color: #666;
     text-align: center;
@@ -302,7 +302,7 @@ hr {
 }
 
 .redact-info {
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     text-decoration: none;
     color: black;
     font-size: 1rem;

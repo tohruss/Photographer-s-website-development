@@ -17,15 +17,15 @@
     padding: 0;
     font-family: "Jost", sans-serif;
     font-size: 1rem;
-    color: #EF4444; /* красный */
+    color: #EF4444;
 }
 .review-success-message {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #E7CFCD; /* бледный кизил — из твоего стайлгайда */
+    background-color: #E7CFCD;
     color: white;
     font-family: "Jost", sans-serif;
-    font-size: 1.125rem; /* 18px */
+    font-size: 18px;
     font-weight: 500;
     border-radius: 12px;
     margin: 0 auto 1.5rem auto;
@@ -50,7 +50,7 @@
 
 .likes-count {
     font-weight: 500;
-    color: #9F9AA4; /* розовый кварц */
+    color: #9F9AA4;
 }
 
 .review-container {
@@ -84,7 +84,7 @@
 }
 
 .author-name {
-    font-family: "Jost-ExtraLight";
+    font-family: "Jost-ExtraLight", sans-serif;
     font-size: 1.75rem;
     color: #333;
     margin-bottom: 0.75rem;
@@ -93,14 +93,14 @@
 .content p {
     max-width: 60vw;
     font-size: 1.5rem;
-    font-family: "Jost-light";
+    font-family: "Jost-light", sans-serif;
     line-height: 1.5;
     color: #333;
 }
 
 .footer {
     margin-top: 1rem;
-    font-family: "Jost-ExtraLight";
+    font-family: "Jost-ExtraLight", sans-serif;
     font-size: 1.25rem;
     color: #9F9AA4;
 }

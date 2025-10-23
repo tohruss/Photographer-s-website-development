@@ -32,11 +32,11 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-family:"Jost-ExtraLight";
+    font-family:"Jost-ExtraLight", sans-serif;
     font-size: 1.5rem;
 }
 .user-body > div > strong{
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
 }
 .user-body > .user-button{
     gap: 20px;

@@ -18,7 +18,7 @@ main > div:last-child{
 }
 
 .wrapper{
-    background-image: url(/img/DSC06525.JPG);
+    background-image: url(/img/DSC06525.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -32,13 +32,13 @@ main > div:last-child{
     max-width: 40vw;
     margin: 0 auto;
     text-align: center;
-    font-family:"Jost-light";
+    font-family:"Jost-light", sans-serif;
     font-size: 2.25rem;
     padding-bottom: 20px;
 }
 .contant-text > p:last-child{
     font-size: 1.25rem;
-    font-family: "Jost-medium";
+    font-family: "Jost-medium", sans-serif;
 }
 .buttoms-contact{
     display: flex;
@@ -51,7 +51,7 @@ main > div:last-child{
 }
 .buttoms-contact > a{
     text-align: center;
-    font-family:"Jost-bold" ;
+    font-family:"Jost-bold", sans-serif;
     text-decoration: none;
     width: 40vw;
     color: white;

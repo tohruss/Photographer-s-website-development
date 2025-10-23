@@ -21,7 +21,7 @@ main{
     display: flex;
     flex-direction: column;
     max-width: 50vw;
-    font-family: "Jost-regulat";
+    font-family: "Jost-regulat", sans-serif;
     color: white;
     margin: 0 auto;
     padding-bottom: 50px;
@@ -48,7 +48,7 @@ main{
     display: flex;
     width: 25vw;
     justify-content: center;
-    font-family:"Jost-bold" ;
+    font-family:"Jost-bold", sans-serif ;
     text-decoration: none;
     color: white;
     padding: 20px;
@@ -70,7 +70,7 @@ main{
 }
 .contant-text{
     text-align: center;
-    font-family:"Jost-regulat";
+    font-family:"Jost-regulat", sans-serif;
     font-size: 2.25rem;
     padding-bottom: 50px;
 }
@@ -84,7 +84,7 @@ main{
 .buttoms-contact > a{
     text-align: center;
     width: 35vw;
-    font-family:"Jost-bold" ;
+    font-family:"Jost-bold", sans-serif;
     text-decoration: none;
     color: white;
     padding: 20px;
