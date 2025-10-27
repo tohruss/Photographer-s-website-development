@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('booking_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('link_to_media');
-            $table->text('comment');
-            $table->boolean('is_approved')->default(false);
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('promocode_id')->nullable()->constrained('promocodes')->onDelete('cascade');
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+            $table->dateTime('date');
+            $table->integer('sale_price');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('booking_requests');
     }
 };
