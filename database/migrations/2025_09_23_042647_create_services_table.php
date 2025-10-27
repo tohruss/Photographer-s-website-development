@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('price');
-            $table->string('description');
+            $table->text('description');
             $table->string('photo');
             $table->boolean('is_available')->default(true);
         });
