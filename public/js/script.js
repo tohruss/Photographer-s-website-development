@@ -26,3 +26,23 @@ window.addEventListener('click', (ev) => {
         menu.style.display = isActive ? 'block' : 'none';
     }
 });
+
+document.querySelectorAll('.promo-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const promoCode = this.getAttribute('data-promo');
+        navigator.clipboard.writeText(promoCode)
+            .then(() => {
+                const feedback = this.querySelector('.copy-feedback');
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 1500);
+
+                console.log(`Промокод "${promoCode}" скопирован!`);
+            })
+            .catch(err => {
+                console.error('Не удалось скопировать промокод:', err);
+                alert('Не удалось скопировать промокод. Скопируйте вручную.');
+            });
+    });
+});

@@ -50,5 +50,22 @@
                 </div>
             </div>
         </div>
+        <div class="promocods">
+            <h2>ПРОМОКОДЫ</h2>
+            <div class="promo-list">
+                <div class="promo-card" data-promo="TOHRUSS">
+                    <img draggable="false" src="/img/500.png" alt="Промокод TOHRUSS" style="width:100%; display:block;">
+                    <div class="copy-feedback">Скопировано!</div>
+                </div>
+                <div class="promo-card" data-promo="PHOTO2025">
+                    <img draggable="false" src="/img/1000.png" alt="Промокод PHOTO2025" style="width:100%; display:block;">
+                    <div class="copy-feedback">Скопировано!</div>
+                </div>
+                <div class="promo-card" data-promo="FC25">
+                    <img draggable="false" src="/img/1500.png" alt="Промокод FC25" style="width:100%; display:block;">
+                    <div class="copy-feedback">Скопировано!</div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

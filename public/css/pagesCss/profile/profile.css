@@ -8,12 +8,60 @@
 .container{
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 .card-body{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.promocods{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.promocods h2{
+    font-family: "Jost-medium", sans-serif;
+}
+.promo-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.promo-card {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 300px;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.promo-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(159, 154, 164, 0.7);
+}
+.promo-card > img{
+    border-radius: 20px;
+}
+.copy-feedback {
+    font-family:"Jost-regulat", sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+
+.copy-feedback.show {
+    opacity: 1;
 }
 
 .avatar-wrapper > img{
