@@ -6,6 +6,7 @@ use App\Http\Requests\RegisterUserRequest;
 use App\Http\Requests\UserInfoRequest;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Promocode;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -69,7 +70,9 @@ class UserInfoController extends Controller
     public function showProfile(): View
     {
         $user = auth()->user()->load('userInfo');
-        return view('profile.profile', compact('user'));
+        $promocodes = Promocode::where('is_active', true)->get();
+
+        return view('profile.profile', compact('user', 'promocodes'));
     }
     public function showEditForm(): View
     {
