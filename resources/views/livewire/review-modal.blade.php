@@ -3,7 +3,7 @@
         <button wire:click="openModal">Оставить отзыв</button>
     </div>
     @if($message)
-        <div class="review-success-message">
+        <div class="review-success-message" x-data x-init="setTimeout(() => $el.remove(), 2000)">
             {{ $message }}
         </div>
     @endif

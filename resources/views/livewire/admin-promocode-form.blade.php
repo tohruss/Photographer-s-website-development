@@ -38,7 +38,7 @@
                             id="discount"
                             placeholder="Например: 500"
                         />
-                        @error('discount') <span class="error">{{ $message }}</span> @enderror
+                        @error('discount') <span class="error" style="color: red; font-size: 0.9rem;"> {{ $message }}</span> @enderror
                     </div>
 
                     <div class="review-modal-footer">

@@ -15,7 +15,7 @@ class AdminPromocodeForm extends Component
 
     protected $rules = [
         'name' => 'required|string|unique:promocodes,name',
-        'discount' => 'required|numeric|min:0',
+        'discount' => 'required|numeric|min:100',
     ];
 
     public function openModal()

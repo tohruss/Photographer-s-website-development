@@ -16,7 +16,7 @@ class BookingForm extends Component
     public $selectedDate = '';
     public $promoCode = '';
     public $services = [];
-    public $promocodeInfo = null;
+    public $appliedPromoName = null;
     public $finalPrice = 0;
 
     protected $rules = [
@@ -32,14 +32,20 @@ class BookingForm extends Component
 
     public function openModal()
     {
-        $this->reset(['selectedServiceId', 'selectedDate', 'promoCode', 'promocodeInfo', 'finalPrice']);
+        $this->reset([
+            'selectedServiceId', 'selectedDate', 'promoCode',
+            'finalPrice', 'appliedPromoName'
+        ]);
         $this->showModal = true;
     }
 
     public function closeModal()
     {
         $this->showModal = false;
-        $this->reset(['selectedServiceId', 'selectedDate', 'promoCode', 'promocodeInfo', 'finalPrice']);
+        $this->reset([
+            'selectedServiceId', 'selectedDate', 'promoCode',
+            'finalPrice', 'appliedPromoName'
+        ]);
     }
 
     public function updatedSelectedServiceId()
@@ -49,23 +55,24 @@ class BookingForm extends Component
 
     public function updatedPromoCode()
     {
-        $this->validateOnly('promoCode');
+        $this->resetValidation('promoCode');
+        $this->appliedPromoName = null;
 
         if (!empty($this->promoCode)) {
-            $this->promocodeInfo = Promocode::where('name', $this->promoCode)
+            $promo = Promocode::where('name', $this->promoCode)
                 ->where('is_active', true)
                 ->first();
 
-            if (!$this->promocodeInfo) {
-                $this->addError('promoCode', 'Промокод недействителен или неактивен.');
-                $this->promocodeInfo = null;
+            if ($promo) {
+                $this->appliedPromoName = $promo->name;
+            } else {
+                $this->addError('promoCode', 'Промокод недействителен.');
             }
-        } else {
-            $this->promocodeInfo = null;
         }
 
         $this->updateFinalPrice();
     }
+
 
     private function updateFinalPrice()
     {
@@ -74,9 +81,15 @@ class BookingForm extends Component
             if ($service) {
                 $this->finalPrice = $service->price;
 
-                if ($this->promocodeInfo) {
-                    $this->finalPrice -= $this->promocodeInfo->discount;
-                    $this->finalPrice = max(0, $this->finalPrice);
+                if ($this->appliedPromoName) {
+                    $promo = Promocode::where('name', $this->promoCode)
+                        ->where('is_active', true)
+                        ->first();
+                    if ($promo) {
+                        $this->finalPrice = max(0, $this->finalPrice - $promo->discount);
+                    } else {
+                        $this->appliedPromoName = null;
+                    }
                 }
             }
         }
@@ -88,6 +101,7 @@ class BookingForm extends Component
             $this->addError('auth', 'Вы должны быть авторизованы, чтобы оставить заявку.');
             return;
         }
+
         $this->validate();
 
         $service = Service::find($this->selectedServiceId);
@@ -100,27 +114,48 @@ class BookingForm extends Component
             $this->addError('selectedDate', 'Дата должна быть сегодня или позже.');
             return;
         }
-        if ($this->promocodeInfo) {
+
+        $promocode = null;
+        if (!empty($this->promoCode)) {
+            $promocode = Promocode::where('name', strtoupper(trim($this->promoCode)))
+                ->where('is_active', true)
+                ->first();
+
+            if (!$promocode) {
+                $this->addError('promoCode', 'Промокод недействителен.');
+                return;
+            }
+
             if (BookingRequest::where('user_id', Auth::id())
-                ->where('promocode_id', $this->promocodeInfo->id)
+                ->where('promocode_id', $promocode->id)
                 ->exists()) {
                 $this->addError('promoCode', 'Вы уже использовали этот промокод.');
                 return;
             }
         }
 
+        $this->finalPrice = $service->price;
+        if ($promocode) {
+            $this->finalPrice = max(0, $this->finalPrice - $promocode->discount);
+        }
+
         $booking = new BookingRequest();
         $booking->user_id = Auth::id();
         $booking->service_id = $this->selectedServiceId;
         $booking->date = $this->selectedDate;
-        $booking->promocode_id = $this->promocodeInfo ? $this->promocodeInfo->id : null;
-        $booking->updateSalePrice();
+        $booking->promocode_id = $promocode?->id;
+        $booking->sale_price = $this->finalPrice;
         $booking->save();
 
         $this->sendNotificationEmail($booking);
 
-        session()->flash('message', 'Ваша заявка успешно отправлена!');
-        $this->closeModal(); // ← закрываем модалку
+        if ($promocode) {
+            session()->flash('message', "Ваша заявка успешно отправлена! Применён промокод «{$promocode->name}». Итоговая цена: {$this->finalPrice} руб.");
+        } else {
+            session()->flash('message', "Ваша заявка успешно отправлена! Стоимость: {$this->finalPrice} руб.");
+        }
+
+        $this->closeModal();
         $this->dispatch('bookingSubmitted');
     }
 

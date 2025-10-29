@@ -7,7 +7,7 @@
         <h2>Модерация отзывов</h2>
 
         @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
+            <div class="review-success-message" x-data x-init="setTimeout(() => $el.remove(), 2000)"{{ session('success') }}</div>
         @endif
 
         @foreach($reviews as $review)

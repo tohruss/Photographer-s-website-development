@@ -51,22 +51,17 @@
                             placeholder="Введите промокод"
                             @if($promoCode) wire:loading.attr="disabled" @endif
                         >
-                        @error('promoCode') <span class="text-danger">{{ $message }}</span> @enderror
 
-                        <!-- Индикатор загрузки -->
                         <span wire:loading wire:target="promoCode" style="font-size: 0.9rem; color: #E7CFCD;">Проверка промокода...</span>
 
-                        <!-- Сообщение об успешном применении -->
-                        @if($promocodeInfo)
-                            <small style="color: #28a745; font-size: 0.9rem;">
-                                Применен промокод "{{ $promocodeInfo->name }}" на скидку {{ number_format($promocodeInfo->discount, 2, ',', ' ') }} руб.
-                            </small>
-                        @endif
+                        @error('promoCode')
+                            <span class="text-danger" style="font-size: 0.9rem;">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     @if($selectedServiceId)
                         <div class="form-group">
-                            <strong>Итоговая цена:</strong> {{ $finalPrice }} руб.
+                            <strong>Цена:</strong> {{ $services->firstWhere('id', $selectedServiceId)?->price ?? '—' }} руб.
                         </div>
                     @endif
                     @error('auth')
