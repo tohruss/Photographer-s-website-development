@@ -2,6 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/pagesCss/profile/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagesCss/popupWindow2.css') }}">
 @endsection
 
 @section('content')
@@ -38,6 +39,7 @@
                         <div>
                             @if($user->isAdmin())
                                 <a href="{{ route('admin.reviews') }}">Просмотр отзывов</a>
+                                <livewire:admin-promocode-form/>
                             @else
                                 <a href="{{ route('favorites') }}">Просмотр избранного</a>
                             @endif

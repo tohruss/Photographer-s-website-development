@@ -16,6 +16,31 @@
 .leave-review-button > button:hover{
     text-decoration: underline;
 }
+.create-promo-button > button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-family: "Jost-ExtraLight", sans-serif;
+    cursor: pointer;
+}
+.create-promo-button > button:hover{
+    text-decoration: underline;
+}
+
+.review-success-message {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    font-family: "Jost-bold", sans-serif;
+    font-size: 1.25rem;
+    color: #28a745;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 400px;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .review-modal-overlay {
     position: fixed;
     top: 0;
