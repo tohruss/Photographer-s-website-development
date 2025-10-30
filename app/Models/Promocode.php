@@ -13,7 +13,8 @@ class Promocode extends Model
     protected $fillable = [
         'name',
         'discount',
-        'is_active'
+        'is_active',
+        'image',
     ];
 
     protected $casts = [

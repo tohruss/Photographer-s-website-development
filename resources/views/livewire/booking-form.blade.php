@@ -21,7 +21,7 @@
             <div class="booking-modal-content" wire:click.stop>
                 <div class="booking-modal-header">
                     <h2>Записаться на фотосессию</h2>
-                    <button wire:click="closeModal" class="modal-close-btn">×</button>
+                    <button wire:click="closeModal" class="modal-close-btn">&times;</button>
                 </div>
 
                 <form wire:submit.prevent="submit" class="booking-modal-form">

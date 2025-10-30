@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 50)->unique();
             $table->decimal('discount', 10, 2);
             $table->boolean('is_active')->default(true);
+            $table->string('image');
         });
     }
 

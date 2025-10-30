@@ -52,23 +52,6 @@
                 </div>
             </div>
         </div>
-        <div class="promocods">
-            <h2>ПРОМОКОДЫ</h2>
-            <div class="promo-list">
-                @if($promocodes->count() > 0)
-                    @foreach($promocodes as $promo)
-                        <div class="promo-card" data-promo="{{ $promo->name }}">
-                            <img draggable="false"
-                                 src="{{ asset('img/' . ($loop->index + 1) * 500 . '.png') }}"
-                                 alt="Промокод {{ $promo->name }}"
-                                 style="width:100%; display:block;">
-                            <div class="copy-feedback">Скопировано!</div>
-                        </div>
-                    @endforeach
-                @else
-                    <p>Нет доступных промокодов.</p>
-                @endif
-            </div>
-        </div>
+        <livewire:promo-list />
     </div>
 @endsection

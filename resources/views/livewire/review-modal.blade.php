@@ -13,7 +13,7 @@
             <div class="review-modal-content" wire:click.stop>
                 <div class="review-modal-header">
                     <h2>Ваш отзыв</h2>
-                    <button wire:click="closeModal">×</button>
+                    <button wire:click="closeModal">&times;</button>
                 </div>
 
                 <form wire:submit.prevent="submit" class="review-modal-form">
