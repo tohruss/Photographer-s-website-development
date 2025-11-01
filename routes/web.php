@@ -134,6 +134,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
             ->get();
         return view('admin.reviews', compact('reviews'));
     })->name('admin.reviews');
+
     Route::post('/reviews/{id}/approve', [ReviewController::class, 'approve'])->name('reviews.approve');
     Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+    Route::get('/bookings', function () {return view('admin.bookings');})->name('admin.bookings');
 });

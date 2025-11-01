@@ -119,7 +119,10 @@
     text-decoration: none;
     color: black;
 }
-
+.user-button > div{
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 1200px) {
     .container {
         max-width: 80%;

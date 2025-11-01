@@ -39,6 +39,7 @@
                         <div>
                             @if($user->isAdmin())
                                 <a href="{{ route('admin.reviews') }}">Просмотр отзывов</a>
+                                <a href="{{ route('admin.bookings') }}">Заявки на фотосессии</a>
                                 <livewire:admin-promocode-form/>
                             @else
                                 <a href="{{ route('favorites') }}">Просмотр избранного</a>
